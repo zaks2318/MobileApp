@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">AD340App</string>
+    <string name="Hello_frament">Hello World!</string>
 </resources>
