@@ -39,6 +39,7 @@ public class Thankyou extends AppCompatActivity{
         textView.setText(msg);
     }
 
-    public void finish() {
+    public void finish(View view){
+        finish();
     }
 }

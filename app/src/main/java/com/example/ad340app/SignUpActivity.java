@@ -219,4 +219,8 @@ public class SignUpActivity extends AppCompatActivity implements DatePickerDialo
         intent.putExtra(Constants.KEY_USER_NAME, username);
         startActivity(intent);
     }
+
+    public void finish(View view) {
+        finish();
+    }
 }
