@@ -39,8 +39,6 @@ public class Thankyou extends AppCompatActivity{
         textView.setText(msg);
     }
 
-    public void backToSignUp(View view) {
-        Intent intent = new Intent(Thankyou.this,SignUpActivity.class);
-        startActivity(intent);
+    public void finish() {
     }
 }

@@ -27,25 +27,26 @@ import java.util.Calendar;
 
 import static android.text.TextUtils.isEmpty;
 
-public class SignUpActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
+public class signUp2Activity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
     private TextView dateText;
     private TextView showText;
     private Button button;
-    String username, check, name;
-    int years, months, dayOfMonths;
+    String username, check, name, job, description, age;
+    int years, months, dayOfMonths, date;
     private static final String TAG = MainActivity.class.getSimpleName();
 
     EditText nameInput;
     EditText emailInput;
     EditText usernameInput;
     EditText edit;
-
+    EditText jobInput;
+    EditText descriptionInput;
 
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.sign_up);
+        setContentView(R.layout.sign_up2);
         dateText = findViewById(R.id.date_text);
         button = findViewById(R.id.submitBut);
         edit = findViewById(R.id.editText);
@@ -53,6 +54,8 @@ public class SignUpActivity extends AppCompatActivity implements DatePickerDialo
         nameInput = (EditText) findViewById(R.id.nameInput);
         emailInput = (EditText) findViewById(R.id.emailInput);
         usernameInput = (EditText) findViewById(R.id.userNameInput);
+        jobInput = (EditText) findViewById(R.id.jobInput);
+        descriptionInput = (EditText) findViewById(R.id.descripInput);
 
         findViewById(R.id.dialog).setOnClickListener(new View.OnClickListener(){
 
@@ -86,12 +89,20 @@ public class SignUpActivity extends AppCompatActivity implements DatePickerDialo
             emailInput.setText(savedInstanceState.getString(Constants.KEY_EMAIL_TEXT));
         }
 
-        if (savedInstanceState.containsKey(Constants.KEY_TEXTVIEW_TEXT)) {
+        if (savedInstanceState.containsKey(Constants.KEY_USER_TEXT)) {
             usernameInput.setText(savedInstanceState.getString(Constants.KEY_USER_TEXT));
         }
 
-        if (savedInstanceState.containsKey(Constants.KEY_TEXTVIEW_TEXT)) {
+        if (savedInstanceState.containsKey(Constants.KEY_DATE_TEXT)) {
             dateText.setText(savedInstanceState.getString(Constants.KEY_DATE_TEXT));
+        }
+
+        if (savedInstanceState.containsKey(Constants.KEY_JOB_TEXT)) {
+            dateText.setText(savedInstanceState.getString(Constants.KEY_JOB_TEXT));
+        }
+
+        if (savedInstanceState.containsKey(Constants.KEY_DESCRIP_TEXT)) {
+            dateText.setText(savedInstanceState.getString(Constants.KEY_DESCRIP_TEXT));
         }
     }
 
@@ -103,6 +114,8 @@ public class SignUpActivity extends AppCompatActivity implements DatePickerDialo
         outState.putString(Constants.KEY_DATE_TEXT, dateText.getText().toString());
         outState.putString(Constants.KEY_EMAIL_TEXT, emailInput.getText().toString());
         outState.putString(Constants.KEY_USER_TEXT, usernameInput.getText().toString());
+        outState.putString(Constants.KEY_JOB_TEXT, jobInput.getText().toString());
+        outState.putString(Constants.KEY_DESCRIP_TEXT, descriptionInput.getText().toString());
     }
 
 
@@ -152,10 +165,10 @@ public class SignUpActivity extends AppCompatActivity implements DatePickerDialo
         }
     }
 
-    public boolean validName(){
-        name = nameInput.getEditableText().toString().trim();
-        Log.i(TAG, "name is: " + name);
-        if (name.isEmpty()){
+    private boolean validName(){
+        String nameText = nameInput.getEditableText().toString().trim();
+        Log.i(TAG, "name is: " + nameText);
+        if (nameText.isEmpty()){
             nameInput.setError("enter your name pls");
             return false;
         }else {
@@ -164,15 +177,38 @@ public class SignUpActivity extends AppCompatActivity implements DatePickerDialo
         }
     }
 
-    public void clear(){
+    private boolean validDescrip(){
+        String descriptionText = descriptionInput.getEditableText().toString().trim();
+        Log.i(TAG, "description is: " + descriptionText);
+        if (descriptionText.isEmpty()){
+            descriptionInput.setError("enter your something about yourself pls");
+            return false;
+        }else {
+            descriptionInput.setError(null);
+            return true;
+        }
+    }
+
+    private boolean validJob(){
+        String jobText = jobInput.getEditableText().toString().trim();
+        Log.i(TAG, "job is: " + jobText);
+        if (jobText.isEmpty()){
+            jobInput.setError("enter your job pls");
+            return false;
+        }else {
+            jobInput.setError(null);
+            return true;
+        }
+    }
+
+    private void clear(){
         nameInput.setText("");
         emailInput.setText("");
         usernameInput.setText("");
         dateText.setText("");
-
     }
 
-    public boolean validUserName(){
+    private boolean validUserName(){
         username = usernameInput.getEditableText().toString().trim();
         Log.i(TAG, "username is: " + username);
         if (username.isEmpty()){
@@ -187,36 +223,46 @@ public class SignUpActivity extends AppCompatActivity implements DatePickerDialo
         }
     }
 
-     public boolean validateAge() {
-         LocalDate today = LocalDate.now();
-         LocalDate birthday = LocalDate.of(years, months, dayOfMonths);
-         check = birthday.toString();
-         Period p = Period.between(birthday, today);
-         Log.i(TAG, "years, months, dayOfMonths: " + years + " ," + months + " ," + dayOfMonths);
-         Log.i(TAG, "Birthday is: " + birthday.toString());
-         if (p.getYears() < 18) {
-             edit.setError("you are under 18, so you can't sign up");
-             return  false;
-         } else if (check.isEmpty()) {
-             edit.setError("enter your brithday");
-             return  false;
-         } else {
-             edit.setError(null);
-             return true;
-         }
-     }
+    private boolean validateAge() {
+        LocalDate today = LocalDate.now();
+        LocalDate birthday = LocalDate.of(years, months, dayOfMonths);
+        check = birthday.toString();
+        Period p = Period.between(birthday, today);
+        this.date =p.getYears();
+        Log.i(TAG, "years, months, dayOfMonths: " + years + " ," + months + " ," + dayOfMonths);
+        Log.i(TAG, "Birthday is: " + birthday.toString());
+        Log.i(TAG, "date is: " + date);
+        if (p.getYears() < 18) {
+            edit.setError("you are under 18, so you can't sign up");
+            return  false;
+        } else if (check.isEmpty()) {
+            edit.setError("enter your brithday");
+            return  false;
+        } else {
+            edit.setError(null);
+            return true;
+        }
+    }
 
-    public void thankYou(View view) {
+    public void goToProfile(View view) {
         boolean isEmailValid = validateEmail();
         boolean isAgeValid = validateAge();
         boolean isNameValid = validName();
         boolean isUserNamvalid = validUserName();
-        if (!isEmailValid | !isAgeValid | !isNameValid | !isUserNamvalid) {
+        boolean isJobValid = validJob();
+        boolean isDescriptValid = validDescrip();
+        if (!isEmailValid | !isAgeValid | !isNameValid | !isUserNamvalid | !isJobValid | !isDescriptValid) {
             return;
         }
-        Intent intent = new Intent(SignUpActivity.this,Thankyou.class);
-        username = usernameInput.getText().toString();
-        intent.putExtra(Constants.KEY_USER_NAME, username);
+        Intent intent = new Intent(signUp2Activity.this, profileActivity.class);
+        name = nameInput.getText().toString();
+        job = jobInput.getText().toString();
+        description = descriptionInput.getText().toString();
+        age = String.valueOf(date);
+        intent.putExtra(Constants.KEY_NAME, name);
+        intent.putExtra(Constants.KEY_AGE, age);
+        intent.putExtra(Constants.KEY_JOB_NAME, job);
+        intent.putExtra(Constants.KEY_DESCRIPTION, description);
         startActivity(intent);
     }
 }

@@ -16,5 +16,9 @@ public class Constants {
     static final String KEY_DATE_TEXT = "date_text";
     static final String KEY_EMAIL_TEXT = "email_text";
     static final String KEY_USER_TEXT = "username_text";
+    static final String KEY_JOB_TEXT = "job_text";
+    static final String KEY_JOB_NAME = "job";
+    static final String KEY_DESCRIP_TEXT = "descrip_text";
+    static final String KEY_DESCRIPTION = "description";
 
 }
