@@ -86,11 +86,11 @@ public class SignUpActivity extends AppCompatActivity implements DatePickerDialo
             emailInput.setText(savedInstanceState.getString(Constants.KEY_EMAIL_TEXT));
         }
 
-        if (savedInstanceState.containsKey(Constants.KEY_TEXTVIEW_TEXT)) {
+        if (savedInstanceState.containsKey(Constants.KEY_USER_TEXT)) {
             usernameInput.setText(savedInstanceState.getString(Constants.KEY_USER_TEXT));
         }
 
-        if (savedInstanceState.containsKey(Constants.KEY_TEXTVIEW_TEXT)) {
+        if (savedInstanceState.containsKey(Constants.KEY_DATE_TEXT)) {
             dateText.setText(savedInstanceState.getString(Constants.KEY_DATE_TEXT));
         }
     }
