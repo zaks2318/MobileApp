@@ -3,29 +3,21 @@ package com.example.ad340app;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.SyncStateContract;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.os.PersistableBundle;
-import java.time.Instant;
-import java.time.Period;
-import java.time.temporal.Temporal;
-import java.time.temporal.ChronoUnit;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.Calendar;
-
-import static android.text.TextUtils.isEmpty;
 
 public class signUp2Activity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
     private TextView dateText;
@@ -181,7 +173,7 @@ public class signUp2Activity extends AppCompatActivity implements DatePickerDial
         String descriptionText = descriptionInput.getEditableText().toString().trim();
         Log.i(TAG, "description is: " + descriptionText);
         if (descriptionText.isEmpty()){
-            descriptionInput.setError("enter your something about yourself pls");
+            descriptionInput.setError("enter something about yourself pls");
             return false;
         }else {
             descriptionInput.setError(null);
@@ -206,6 +198,8 @@ public class signUp2Activity extends AppCompatActivity implements DatePickerDial
         emailInput.setText("");
         usernameInput.setText("");
         dateText.setText("");
+        jobInput.setText(" ");
+        descriptionInput.setText(" ");
     }
 
     private boolean validUserName(){

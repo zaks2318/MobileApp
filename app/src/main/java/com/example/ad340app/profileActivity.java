@@ -2,11 +2,11 @@ package com.example.ad340app;
 
 import android.content.Intent;
 import android.os.Bundle;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 
 public class profileActivity extends AppCompatActivity{
     private static final String TAG = profileActivity.class.getSimpleName();
@@ -66,6 +66,7 @@ public class profileActivity extends AppCompatActivity{
         descripText.setText(descripMsg);
     }
 
-    public void finish() {
+    public void finish(View view) {
+        finish();
     }
 }

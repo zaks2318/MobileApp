@@ -18,6 +18,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".Thankyou"></activity>
+        <activity android:name=".signUp2Activity"></activity>
+        <activity android:name=".profileActivity"></activity>
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
