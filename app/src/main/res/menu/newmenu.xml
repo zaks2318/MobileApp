@@ -6,20 +6,15 @@
         android:title="Item 1"
         app:showAsAction="ifRoom" />
 
-    <item android:id="@+id/item2"
-        android:title="Item 2"
-        app:showAsAction="never" />
+    <item android:id="@+id/navProfile"
+        android:title="Profile"
+        />
 
-    <item android:id="@+id/item3"
-        android:title="Item 3"
-        app:showAsAction="never">
-        <menu>
-            <item android:id="@+id/subitem1"
-                android:title="Sub Item 1"/>
+    <item android:id="@+id/navMatches"
+        android:title="Matches"
+        />
 
-            <item android:id="@+id/subitem2"
-                android:title="Sub Item 2"/>
-        </menu>
-
-    </item>
+    <item android:id="@+id/navSettings"
+        android:title="Settings"
+        />
 </menu>

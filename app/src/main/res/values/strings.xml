@@ -2,4 +2,6 @@
     <string name="app_name">AD340App</string>
     <string name="Hello_frament">Hello World!</string>
     <string name="but">button</string>
+    <string name="hello_settings_fragment">Hello settings fragment</string>
+    <string name="hello_matches_fragment">Hello matches fragment</string>
 </resources>

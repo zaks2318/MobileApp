@@ -3,29 +3,21 @@ package com.example.ad340app;
 import android.app.DatePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
-import android.provider.SyncStateContract;
 import android.util.Log;
 import android.util.Patterns;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
-import android.os.PersistableBundle;
-import java.time.Instant;
-import java.time.Period;
-import java.time.temporal.Temporal;
-import java.time.temporal.ChronoUnit;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.Calendar;
-
-import static android.text.TextUtils.isEmpty;
 
 public class SignUpActivity extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
     private TextView dateText;
@@ -90,9 +82,6 @@ public class SignUpActivity extends AppCompatActivity implements DatePickerDialo
             usernameInput.setText(savedInstanceState.getString(Constants.KEY_USER_TEXT));
         }
 
-        if (savedInstanceState.containsKey(Constants.KEY_DATE_TEXT)) {
-            dateText.setText(savedInstanceState.getString(Constants.KEY_DATE_TEXT));
-        }
     }
 
     @Override
@@ -100,7 +89,6 @@ public class SignUpActivity extends AppCompatActivity implements DatePickerDialo
         super.onSaveInstanceState(outState);
 
         outState.putString(Constants.KEY_TEXTVIEW_TEXT, nameInput.getText().toString());
-        outState.putString(Constants.KEY_DATE_TEXT, dateText.getText().toString());
         outState.putString(Constants.KEY_EMAIL_TEXT, emailInput.getText().toString());
         outState.putString(Constants.KEY_USER_TEXT, usernameInput.getText().toString());
     }

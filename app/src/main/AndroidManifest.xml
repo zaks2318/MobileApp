@@ -11,15 +11,16 @@
         android:theme="@style/Theme.AD340App"
         android:requestLegacyExternalStorage="true">
         <activity android:name=".MainActivity"></activity>
-        <activity android:name=".SignUpActivity">
+        <activity android:name=".SignUpActivity"></activity>
+        <activity android:name=".Thankyou"></activity>
+        <activity android:name=".signUp2Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".Thankyou"></activity>
-        <activity android:name=".signUp2Activity"></activity>
         <activity android:name=".profileActivity"></activity>
+        <activity android:name=".Activity2"></activity>
     </application>
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>

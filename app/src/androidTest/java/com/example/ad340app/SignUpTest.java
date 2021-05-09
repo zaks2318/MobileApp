@@ -35,4 +35,17 @@ public class SignUpTest {
         onView(withId(R.id.submitBut)).perform((click()));
     }
 
+    /*@Test
+    public void retainStateAfterRotate(){
+        onView(withId(R.id.nameInput)).perform(typeText("aaaaaaa"));
+        onView(withId(R.id.emailInput)).perform(typeText("abcadw@gmail.com"));
+        onView(withId(R.id.userNameInput)).perform(typeText("bbbbbbbb"));
+
+        TestUtils.rotateScreen(TestUtils.getActivity(activityScenarioRule));
+
+        onView(withId(R.id.nameInput)).check(matches(withText("aaaaaaa")));
+        onView(withId(R.id.userNameInput)).check(matches(withText("bbbbbbbb")));
+        onView(withId(R.id.emailInput)).check(matches(withText("abcadw@gmail.com")));
+    }*/
+
 }

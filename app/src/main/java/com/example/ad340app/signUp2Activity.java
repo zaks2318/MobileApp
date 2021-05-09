@@ -85,10 +85,6 @@ public class signUp2Activity extends AppCompatActivity implements DatePickerDial
             usernameInput.setText(savedInstanceState.getString(Constants.KEY_USER_TEXT));
         }
 
-        if (savedInstanceState.containsKey(Constants.KEY_DATE_TEXT)) {
-            dateText.setText(savedInstanceState.getString(Constants.KEY_DATE_TEXT));
-        }
-
         if (savedInstanceState.containsKey(Constants.KEY_JOB_TEXT)) {
             dateText.setText(savedInstanceState.getString(Constants.KEY_JOB_TEXT));
         }
@@ -103,7 +99,6 @@ public class signUp2Activity extends AppCompatActivity implements DatePickerDial
         super.onSaveInstanceState(outState);
 
         outState.putString(Constants.KEY_TEXTVIEW_TEXT, nameInput.getText().toString());
-        outState.putString(Constants.KEY_DATE_TEXT, dateText.getText().toString());
         outState.putString(Constants.KEY_EMAIL_TEXT, emailInput.getText().toString());
         outState.putString(Constants.KEY_USER_TEXT, usernameInput.getText().toString());
         outState.putString(Constants.KEY_JOB_TEXT, jobInput.getText().toString());
@@ -248,7 +243,7 @@ public class signUp2Activity extends AppCompatActivity implements DatePickerDial
         if (!isEmailValid | !isAgeValid | !isNameValid | !isUserNamvalid | !isJobValid | !isDescriptValid) {
             return;
         }
-        Intent intent = new Intent(signUp2Activity.this, profileActivity.class);
+        Intent intent = new Intent(signUp2Activity.this, Activity2.class);
         name = nameInput.getText().toString();
         job = jobInput.getText().toString();
         description = descriptionInput.getText().toString();
