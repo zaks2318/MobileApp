@@ -18,7 +18,7 @@ import static com.example.ad340app.profileFragment.DESCRIP;
 import static com.example.ad340app.profileFragment.JOB;
 import static com.example.ad340app.profileFragment.NAME;
 
-public class Activity2 extends AppCompatActivity {
+public class Activity2 extends AppCompatActivity implements Listener{
     String username, check, name, job, description, age;
     FragmentManager manager;
 
@@ -104,6 +104,11 @@ public class Activity2 extends AppCompatActivity {
                 return super.onOptionsItemSelected(item);
         }
         return  true;
+    }
+
+    @Override
+    public void matchesLikeToast(String k) {
+        Toast.makeText(this,String.format("Liked " + k ),Toast.LENGTH_LONG).show();
     }
 
     public void finish(View view) {

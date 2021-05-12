@@ -49,7 +49,7 @@
             android:id="@+id/userNameInput"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:ems="10"
+            android:ems="15"
             android:hint="JK1000"
             android:inputType="textPersonName" />
 

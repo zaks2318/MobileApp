@@ -13,6 +13,7 @@ import org.junit.runner.RunWith;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
+import static androidx.test.espresso.action.ViewActions.scrollTo;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.matcher.ViewMatchers.hasErrorText;
 import static androidx.test.espresso.matcher.ViewMatchers.withClassName;
@@ -21,20 +22,24 @@ import static androidx.test.espresso.matcher.ViewMatchers.withText;
 import static org.hamcrest.Matchers.allOf;
 
 @RunWith(AndroidJUnit4.class)
-public class SignUpTest {
+public class SignUp2Test {
     @Rule
-    public ActivityScenarioRule<SignUpActivity> activityScenarioRule
-            = new ActivityScenarioRule<>(SignUpActivity.class);
+    public ActivityScenarioRule<signUp2Activity> activityScenarioRule
+            = new ActivityScenarioRule<>(signUp2Activity.class);
 
     @Test
     public void canEnterNameAndSignUp() throws InterruptedException {
         onView(withId(R.id.nameInput)).perform(typeText("aaaaaaa"));
         onView(withId(R.id.emailInput)).perform(typeText("abcadw@gmail.com"));
         onView(withId(R.id.userNameInput)).perform(typeText("bbbbbbbb"));
+        onView(withId(R.id.jobInput)).perform(typeText("ccccc"));
+        onView(withId(R.id.descripInput)).perform(typeText("ddddddddddd"));
+
         onView(withId(R.id.dialog)).perform((click()));
-        onView(withClassName(Matchers.equalTo(DatePicker.class.getName()))).perform(PickerActions.setDate(1900, 01, 01));
+        onView(withClassName(Matchers.equalTo(DatePicker.class.getName()))).perform(PickerActions.setDate(1991, 01, 01));
         onView(withText("OK")).perform(click());
         onView(withId(R.id.submitBut)).perform((click()));
+
     }
 
     /* @Test
@@ -92,7 +97,7 @@ public class SignUpTest {
         onView(withId(R.id.dialog)).perform((click()));
         onView(withClassName(Matchers.equalTo(DatePicker.class.getName()))).perform(PickerActions.setDate(1900, 01, 01));
         onView(withText("OK")).perform(click());
-        onView(withId(R.id.submitBut)).perform((click()));
+        onView(withId(R.id.submitBut)).perform(scrollTo(),(click()));
 
         onView((allOf(withId(R.id.userNameInput), hasErrorText("username too long"))));
 
@@ -111,6 +116,30 @@ public class SignUpTest {
     }
 
     @Test
+    public void checkEmptyjob() {
+        onView(withId(R.id.jobInput)).perform(typeText(""));
+        onView(withId(R.id.dialog)).perform((click()));
+        onView(withClassName(Matchers.equalTo(DatePicker.class.getName()))).perform(PickerActions.setDate(1900, 01, 01));
+        onView(withText("OK")).perform(click());
+        onView(withId(R.id.submitBut)).perform((click()));
+
+        onView((allOf(withId(R.id.jobInput), hasErrorText("enter your job pls"))));
+
+    }
+
+    @Test
+    public void checkEmptyDescription() {
+        onView(withId(R.id.descripInput)).perform(typeText(""));
+        onView(withId(R.id.dialog)).perform((click()));
+        onView(withClassName(Matchers.equalTo(DatePicker.class.getName()))).perform(PickerActions.setDate(1900, 01, 01));
+        onView(withText("OK")).perform(click());
+        onView(withId(R.id.submitBut)).perform((click()));
+
+        onView((allOf(withId(R.id.descripInput), hasErrorText("enter something about yourself pls"))));
+
+    }
+
+    @Test
     public void checkAge() {
         onView(withId(R.id.dialog)).perform((click()));
         onView(withClassName(Matchers.equalTo(DatePicker.class.getName()))).perform(PickerActions.setDate(2020, 05, 01));
@@ -122,3 +151,4 @@ public class SignUpTest {
     }
 
 }
+
