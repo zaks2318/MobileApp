@@ -13,7 +13,6 @@ import org.junit.runner.RunWith;
 
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
-import static androidx.test.espresso.action.ViewActions.scrollTo;
 import static androidx.test.espresso.action.ViewActions.typeText;
 import static androidx.test.espresso.matcher.ViewMatchers.hasErrorText;
 import static androidx.test.espresso.matcher.ViewMatchers.withClassName;
@@ -97,7 +96,7 @@ public class SignUp2Test {
         onView(withId(R.id.dialog)).perform((click()));
         onView(withClassName(Matchers.equalTo(DatePicker.class.getName()))).perform(PickerActions.setDate(1900, 01, 01));
         onView(withText("OK")).perform(click());
-        onView(withId(R.id.submitBut)).perform(scrollTo(),(click()));
+        onView(withId(R.id.submitBut)).perform((click()));
 
         onView((allOf(withId(R.id.userNameInput), hasErrorText("username too long"))));
 
