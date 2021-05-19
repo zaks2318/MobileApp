@@ -8,17 +8,16 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ad340app.network.ImageRequester;
-import com.example.ad340app.network.ProductEntry;
-
 import java.util.List;
 
 public class ProductCardRecyclerViewAdapter extends RecyclerView.Adapter<ProductCardViewHolder> {
 
-    private List<ProductEntry> productList;
+    private List<MatchView> productList;
     private ImageRequester imageRequester;
 
-    ProductCardRecyclerViewAdapter(List<ProductEntry> productList) {
+    ProductCardRecyclerViewAdapter(List<MatchView> productList) {
         this.productList = productList;
+        imageRequester = ImageRequester.getInstance();
     }
 
     @NonNull
@@ -30,15 +29,20 @@ public class ProductCardRecyclerViewAdapter extends RecyclerView.Adapter<Product
 
     @Override
     public void onBindViewHolder(@NonNull ProductCardViewHolder holder, int position) {
-        if (productList != null && position < productList.size()) {
-            ProductEntry product = productList.get(position);
-            holder.productTitle.setText(product.title);
-            holder.productImage.setImageResource(R.drawable.dog);
+        if (productList != null ) {
+            MatchView picture = productList.get(position);
+            holder.productTitle.setText(picture.name);
+            holder.setLiked(picture.liked);
+            imageRequester.setImageFromUrl(holder.productImage, picture.imageUrl);
         }
     }
 
     @Override
     public int getItemCount() {
         return productList.size();
+    }
+
+    public void setMatchesList(List<MatchView> picture) {
+        this.productList = picture;
     }
 }

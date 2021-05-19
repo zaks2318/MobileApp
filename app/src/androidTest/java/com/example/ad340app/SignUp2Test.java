@@ -14,6 +14,7 @@ import org.junit.runner.RunWith;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.typeText;
+import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.hasErrorText;
 import static androidx.test.espresso.matcher.ViewMatchers.withClassName;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
@@ -41,18 +42,22 @@ public class SignUp2Test {
 
     }
 
-    /* @Test
+    @Test
         public void retainStateAfterRotate(){
         onView(withId(R.id.nameInput)).perform(typeText("aaaaaaa"));
         onView(withId(R.id.emailInput)).perform(typeText("abcadw@gmail.com"));
         onView(withId(R.id.userNameInput)).perform(typeText("bbbbbbbb"));
+        onView(withId(R.id.jobInput)).perform(typeText("ccccc"));
+        onView(withId(R.id.descripInput)).perform(typeText("ddddddddddd"));
 
         TestUtils.rotateScreen(TestUtils.getActivity(activityScenarioRule));
 
         onView(withId(R.id.nameInput)).check(matches(withText("aaaaaaa")));
         onView(withId(R.id.userNameInput)).check(matches(withText("bbbbbbbb")));
         onView(withId(R.id.emailInput)).check(matches(withText("abcadw@gmail.com")));
-    }*/
+        onView(withId(R.id.jobInput)).check(matches(withText("ccccc")));
+        onView(withId(R.id.descripInput)).check(matches(withText("ddddddddddd")));
+    }
 
     @Test
     public void checkEmail() {
