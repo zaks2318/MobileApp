@@ -5,9 +5,84 @@
     android:layout_height="match_parent"
     tools:context=".SettingsFragment">
 
-    <TextView
+
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/hello_settings_fragment" />
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/email"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" />
+
+        <CheckBox
+            android:id="@+id/checkBoxPrivate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Private" />
+
+        <EditText
+            android:id="@+id/ReminderTimeText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Daily Matches Reminder Time"
+            android:inputType="time" />
+
+        <EditText
+            android:id="@+id/genderText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Gender"
+            android:inputType="textPersonName" />
+
+
+        <EditText
+            android:id="@+id/MaxDistanceText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Search Distance(In Miles)"
+            android:inputType="textPersonName" />
+
+        <EditText
+            android:id="@+id/MaxAgeRange"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Max age range"
+            android:inputType="number" />
+
+        <EditText
+            android:id="@+id/MinAgeRange"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="Min age range"
+            android:inputType="number" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/UpdataBut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="updateDatabase"
+                android:text="Update" />
+
+            <Button
+                android:id="@+id/DeleteBut"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="Delete" />
+        </LinearLayout>
+    </LinearLayout>
 
 </FrameLayout>

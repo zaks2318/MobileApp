@@ -23,7 +23,7 @@ public class signUp2Activity extends AppCompatActivity implements DatePickerDial
     private TextView dateText;
     private TextView showText;
     private Button button;
-    String username, check, name, job, description, age;
+    String username, email, check, name, job, description, age;
     int years, months, dayOfMonths, date;
     private static final String TAG = MainActivity.class.getSimpleName();
 
@@ -86,11 +86,11 @@ public class signUp2Activity extends AppCompatActivity implements DatePickerDial
         }
 
         if (savedInstanceState.containsKey(Constants.KEY_JOB_TEXT)) {
-            dateText.setText(savedInstanceState.getString(Constants.KEY_JOB_TEXT));
+            jobInput.setText(savedInstanceState.getString(Constants.KEY_JOB_TEXT));
         }
 
         if (savedInstanceState.containsKey(Constants.KEY_DESCRIP_TEXT)) {
-            dateText.setText(savedInstanceState.getString(Constants.KEY_DESCRIP_TEXT));
+            descriptionInput.setText(savedInstanceState.getString(Constants.KEY_DESCRIP_TEXT));
         }
     }
 
@@ -248,7 +248,9 @@ public class signUp2Activity extends AppCompatActivity implements DatePickerDial
         job = jobInput.getText().toString();
         description = descriptionInput.getText().toString();
         age = String.valueOf(date);
+        email = emailInput.getText().toString();
         intent.putExtra(Constants.KEY_NAME, name);
+        intent.putExtra(Constants.KEY_EMAIL, email);
         intent.putExtra(Constants.KEY_AGE, age);
         intent.putExtra(Constants.KEY_JOB_NAME, job);
         intent.putExtra(Constants.KEY_DESCRIPTION, description);

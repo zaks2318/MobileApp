@@ -13,13 +13,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 
+import static com.example.ad340app.SettingsFragment.EMAILTEXT;
 import static com.example.ad340app.profileFragment.AGE;
 import static com.example.ad340app.profileFragment.DESCRIP;
 import static com.example.ad340app.profileFragment.JOB;
 import static com.example.ad340app.profileFragment.NAME;
 
 public class Activity2 extends AppCompatActivity implements Listener{
-    String username, check, name, job, description, age;
+    String username, email, name, job, description, age;
     FragmentManager manager;
 
     @Override
@@ -48,6 +49,10 @@ public class Activity2 extends AppCompatActivity implements Listener{
             if (b.containsKey(Constants.KEY_JOB_NAME)) {
                 job = b.getString(Constants.KEY_JOB_NAME);
             }
+
+            if (b.containsKey(Constants.KEY_EMAIL)) {
+                email = b.getString(Constants.KEY_EMAIL);
+            }
         }
 
 
@@ -56,9 +61,13 @@ public class Activity2 extends AppCompatActivity implements Listener{
         bundle.putString(AGE,age);
         bundle.putString(JOB,job);
         bundle.putString(DESCRIP,description);
+        bundle.putString(EMAILTEXT,email);
 
         profileFragment fragment = new profileFragment();
         fragment.setArguments(bundle);
+
+        SettingsFragment fragment1 = new SettingsFragment();
+        fragment1.setArguments(bundle);
 
         FragmentTransaction transaction = manager.beginTransaction();
         transaction.add(R.id.fragment_container, fragment, "fragA");
@@ -97,6 +106,11 @@ public class Activity2 extends AppCompatActivity implements Listener{
                 break;
             case R.id.navSettings:
                 Toast.makeText(this, "Settings selected", Toast.LENGTH_SHORT).show();
+
+                Bundle bundle1 = new Bundle();
+                bundle1.putString(EMAILTEXT,email);
+                SettingsFragment fragment1 = new SettingsFragment();
+                fragment1.setArguments(bundle1);
 
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SettingsFragment()).commit();
                 break;
