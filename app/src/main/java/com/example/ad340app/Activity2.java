@@ -112,7 +112,7 @@ public class Activity2 extends AppCompatActivity implements Listener{
                 SettingsFragment fragment1 = new SettingsFragment();
                 fragment1.setArguments(bundle1);
 
-                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, new SettingsFragment()).commit();
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container, fragment1).commit();
                 break;
             default:
                 return super.onOptionsItemSelected(item);

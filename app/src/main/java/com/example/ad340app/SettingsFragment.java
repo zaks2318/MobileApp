@@ -47,14 +47,17 @@ public class SettingsFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_settings, container, false);
+
         email = view.findViewById(R.id.email);
+        email.setText(getArguments().getString(EMAILTEXT));
         Gender = view.findViewById(R.id.genderText);
         DRtime = view.findViewById(R.id.ReminderTimeText);
         MaxAge = view.findViewById(R.id.MaxAgeRange);
         MinAge = view.findViewById(R.id.MinAgeRange);
         MDsearch = view.findViewById(R.id.MaxDistanceText);
         Private = view.findViewById(R.id.checkBoxPrivate);
-        update = view.findViewById(R.id.UpdataBut);
+        update = view.findViewById(R.id.UpdateBut);
+        update.setOnClickListener(this::updateDatabase);
         delete = view.findViewById(R.id.DeleteBut);
 
 
