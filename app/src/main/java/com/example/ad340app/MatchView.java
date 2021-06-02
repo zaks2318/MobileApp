@@ -11,37 +11,47 @@ public class MatchView implements Parcelable {
     public String imageUrl;
     public String uid;
     public String name;
+    public String lat;
+    public String longitude;
 
     public MatchView(){
 
     }
 
-    public MatchView(String name, boolean liked, String imageUrl){
+    public MatchView(String name, boolean liked, String imageUrl, String lat, String longitude){
         this.name = name;
         this.imageUrl = imageUrl;
         this.liked = liked;
+        this.lat = lat;
+        this.longitude = longitude;
     }
 
     public MatchView (Parcel in){
         name = in.readString();
         liked = in.readByte() !=0;
         imageUrl = in.readString();
+        lat = in.readString();
+        longitude = in.readString();
     }
 
     public static final Creator<MatchView> CREATOR = new Creator<MatchView>() {
         @Override
         public MatchView createFromParcel(Parcel in) {
+
+
             return new MatchView(in);
         }
 
         @Override
         public MatchView[] newArray(int size) {
+
             return new MatchView[size];
         }
     };
 
     @Override
     public int describeContents() {
+
         return 0;
     }
 
@@ -50,5 +60,7 @@ public class MatchView implements Parcelable {
         dest.writeString(name);
         dest.writeByte((byte) (liked ? 1 : 0));
         dest.writeString(imageUrl);
+        dest.writeString(lat);
+        dest.writeString(longitude);
     }
 }

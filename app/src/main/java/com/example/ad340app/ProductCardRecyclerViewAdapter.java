@@ -1,5 +1,6 @@
 package com.example.ad340app;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -7,17 +8,19 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.ad340app.network.ImageRequester;
+import com.squareup.picasso.Picasso;
+
 import java.util.List;
+
 
 public class ProductCardRecyclerViewAdapter extends RecyclerView.Adapter<ProductCardViewHolder> {
 
     private List<MatchView> productList;
-    private ImageRequester imageRequester;
+    private Context context;
 
-    ProductCardRecyclerViewAdapter(List<MatchView> productList) {
+    ProductCardRecyclerViewAdapter(Context context,List<MatchView> productList) {
         this.productList = productList;
-        imageRequester = ImageRequester.getInstance();
+        this.context = context;
     }
 
     @NonNull
@@ -30,10 +33,10 @@ public class ProductCardRecyclerViewAdapter extends RecyclerView.Adapter<Product
     @Override
     public void onBindViewHolder(@NonNull ProductCardViewHolder holder, int position) {
         if (productList != null ) {
-            MatchView picture = productList.get(position);
+            MatchView picture = this.productList.get(position);
             holder.productTitle.setText(picture.name);
             holder.setLiked(picture.liked);
-            imageRequester.setImageFromUrl(holder.productImage, picture.imageUrl);
+            Picasso.get().load(picture.imageUrl).into(holder.productImage);
         }
     }
 

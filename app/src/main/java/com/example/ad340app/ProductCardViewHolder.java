@@ -3,16 +3,15 @@ package com.example.ad340app;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.android.volley.toolbox.NetworkImageView;
-
 public class ProductCardViewHolder extends RecyclerView.ViewHolder {
 
-    public NetworkImageView productImage;
+    public ImageView productImage;
     public TextView productTitle;
     CheckBox likeButton;
 
