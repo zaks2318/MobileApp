@@ -57,7 +57,7 @@ public class SettingsFragment extends Fragment {
         MDsearch = view.findViewById(R.id.MaxDistanceText);
         Private = view.findViewById(R.id.checkBoxPrivate);
         update = view.findViewById(R.id.UpdateBut);
-        update.setOnClickListener(this::updateDatabase);
+        update.setOnClickListener(this::saveSettings);
         delete = view.findViewById(R.id.DeleteBut);
 
 
@@ -91,7 +91,7 @@ public class SettingsFragment extends Fragment {
         return view;
     }
 
-    public void updateDatabase(View view){
+    public void saveSettings(View view){
         SettingEntity setting = new SettingEntity();
         setting.setDailyReminderTime(DRtime.toString());
         setting.setGender(Gender.toString());
@@ -100,7 +100,7 @@ public class SettingsFragment extends Fragment {
         setting.setMaxDistance(MDsearch.toString());
         setting.setPrivateAccount(Private.isChecked());
 
-        settingViewModel.updateSetting(this.getContext(), setting);
+        settingViewModel.saveSettings(this.getContext(), setting);
         Toast.makeText(getActivity(), "Settings Update", Toast.LENGTH_SHORT).show();
     }
 

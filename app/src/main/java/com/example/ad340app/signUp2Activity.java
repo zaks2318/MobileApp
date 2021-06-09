@@ -30,7 +30,6 @@ public class signUp2Activity extends AppCompatActivity implements DatePickerDial
     EditText nameInput;
     EditText emailInput;
     EditText usernameInput;
-    EditText edit;
     EditText jobInput;
     EditText descriptionInput;
 
@@ -41,7 +40,6 @@ public class signUp2Activity extends AppCompatActivity implements DatePickerDial
         setContentView(R.layout.sign_up2);
         dateText = findViewById(R.id.date_text);
         button = findViewById(R.id.submitBut);
-        edit = findViewById(R.id.editText);
 
         nameInput = (EditText) findViewById(R.id.nameInput);
         emailInput = (EditText) findViewById(R.id.emailInput);
@@ -222,13 +220,12 @@ public class signUp2Activity extends AppCompatActivity implements DatePickerDial
         Log.i(TAG, "Birthday is: " + birthday.toString());
         Log.i(TAG, "date is: " + date);
         if (p.getYears() < 18) {
-            edit.setError("you are under 18, so you can't sign up");
+            dateText.setText("you are under 18, so you can't sign up");
             return  false;
         } else if (check.isEmpty()) {
-            edit.setError("enter your brithday");
+            dateText.setText("enter your brithday");
             return  false;
         } else {
-            edit.setError(null);
             return true;
         }
     }

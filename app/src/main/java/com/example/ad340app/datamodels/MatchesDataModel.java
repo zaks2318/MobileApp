@@ -43,6 +43,8 @@ public class MatchesDataModel {
     public void updateMatchById(MatchView picture){
         DocumentReference matchRef = db.collection("Matches").document(picture.uid);
         Map<String, Object> data = new HashMap<>();
+        data.put("lat", picture.lat);
+        data.put("longitude", picture.longitude);
         data.put("name", picture.name);
         data.put("liked", picture.liked);
         data.put("imageUrl", picture.imageUrl);

@@ -16,4 +16,24 @@
     <dimen name="shr_staggered_product_grid_card_height_portrait">247dp</dimen>
     <dimen name="shr_staggered_product_grid_card_width_landscape">188dp</dimen>
     <dimen name="shr_staggered_product_grid_card_height_landscape">140dp</dimen>
+    <dimen name="Image_high">287dp</dimen>
+    <dimen name="Image_width">200dp</dimen>
+    <dimen name="marginStart">4dp</dimen>
+    <dimen name="marginEnd">211dp</dimen>
+    <dimen name="magrinBottom">281dp</dimen>
+    <dimen name="margin_NameTop">248dp</dimen>
+    <dimen name="margin_NameEnd">110dp</dimen>
+    <dimen name="margin_NameBottom">505dp</dimen>
+    <dimen name="margin_AgeTop">12dp</dimen>
+    <dimen name="margin_AgeBottom">440dp</dimen>
+    <dimen name="margin_JobTop">16dp</dimen>
+    <dimen name="margin_JobBottom">367dp</dimen>
+    <dimen name="margin_DTop">4dp</dimen>
+    <dimen name="margin_DBottom">230dp</dimen>
+    <dimen name="margin_TitleTop">82dp</dimen>
+    <dimen name="margin_TitleBottom">633dp</dimen>
+    <dimen name="Title_width">206dp</dimen>
+    <dimen name="Title_hight">50dp</dimen>
+    <dimen name="title_Size">32dp</dimen>
+    <dimen name="age_marginEnd">90dp</dimen>
 </resources>

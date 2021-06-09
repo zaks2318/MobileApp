@@ -11,7 +11,7 @@ import androidx.fragment.app.Fragment;
 
 public class profileFragment extends Fragment {
 
-    private static final String TAG = profileActivity.class.getSimpleName();
+    private static final String TAG = profileFragment.class.getSimpleName();
     static final String NAME = "name";
     static final String AGE = "age";
     static final String JOB = "job";

@@ -12,7 +12,7 @@ public class MatchesViewModel {
     private MatchesDataModel matchesDataModel;
 
     public MatchesViewModel(){
-        matchesDataModel = new MatchesDataModel();
+      matchesDataModel = new MatchesDataModel();
     }
 
     public void addMatch(MatchView picture){

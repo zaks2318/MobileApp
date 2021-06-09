@@ -14,6 +14,7 @@ import org.junit.runner.RunWith;
 import static androidx.test.espresso.Espresso.onView;
 import static androidx.test.espresso.action.ViewActions.click;
 import static androidx.test.espresso.action.ViewActions.typeText;
+import static androidx.test.espresso.assertion.ViewAssertions.matches;
 import static androidx.test.espresso.matcher.ViewMatchers.hasErrorText;
 import static androidx.test.espresso.matcher.ViewMatchers.withClassName;
 import static androidx.test.espresso.matcher.ViewMatchers.withId;
@@ -37,7 +38,7 @@ public class SignUpTest {
         onView(withId(R.id.submitBut)).perform((click()));
     }
 
-    /* @Test
+    @Test
         public void retainStateAfterRotate(){
         onView(withId(R.id.nameInput)).perform(typeText("aaaaaaa"));
         onView(withId(R.id.emailInput)).perform(typeText("abcadw@gmail.com"));
@@ -48,7 +49,7 @@ public class SignUpTest {
         onView(withId(R.id.nameInput)).check(matches(withText("aaaaaaa")));
         onView(withId(R.id.userNameInput)).check(matches(withText("bbbbbbbb")));
         onView(withId(R.id.emailInput)).check(matches(withText("abcadw@gmail.com")));
-    }*/
+    }
 
     @Test
     public void checkEmail() {

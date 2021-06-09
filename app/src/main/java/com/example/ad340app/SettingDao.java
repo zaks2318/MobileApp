@@ -22,7 +22,7 @@ public interface SettingDao {
     void updateSetting(SettingEntity... settingEntities);
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    void insertAll(SettingEntity... settingEntities);
+    void saveSettings(SettingEntity... settingEntities);
 
     @Delete
     void delete(SettingEntity settingEntities);

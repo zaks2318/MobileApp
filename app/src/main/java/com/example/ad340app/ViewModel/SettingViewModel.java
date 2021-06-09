@@ -31,10 +31,10 @@ public class SettingViewModel extends ViewModel {
         });
     }
 
-    public void insertAll(Context context, SettingEntity... settingEntities) {
+    public void saveSettings(Context context, SettingEntity... settingEntities) {
         AppDatabase db = AppDatabaseSingleton.getDatabase(context);
         db.getTransactionExecutor().execute(() -> {
-            db.SettingDao().insertAll(settingEntities);
+            db.SettingDao().saveSettings(settingEntities);
         });
     }
 }

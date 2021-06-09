@@ -45,7 +45,7 @@ public class ProductCardRecyclerViewAdapter extends RecyclerView.Adapter<Product
         return productList.size();
     }
 
-    public void setMatchesList(List<MatchView> picture) {
-        this.productList = picture;
+    public void setMatchesList(List<MatchView> pictures) {
+        this.productList = pictures;
     }
 }

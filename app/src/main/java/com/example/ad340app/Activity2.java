@@ -5,13 +5,14 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
-import android.view.View;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
+
+import com.example.ad340app.ViewModel.MatchesViewModel;
 
 import static com.example.ad340app.SettingsFragment.EMAILTEXT;
 import static com.example.ad340app.profileFragment.AGE;
@@ -22,6 +23,7 @@ import static com.example.ad340app.profileFragment.NAME;
 public class Activity2 extends AppCompatActivity implements Listener{
     String username, email, name, job, description, age;
     FragmentManager manager;
+    private MatchesViewModel viewModel;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -121,11 +123,13 @@ public class Activity2 extends AppCompatActivity implements Listener{
     }
 
     @Override
-    public void matchesLikeToast(String k) {
-        Toast.makeText(this,String.format("Liked " + k ),Toast.LENGTH_LONG).show();
-    }
-
-    public void finish(View view) {
-        finish();
+    public void matchesLikeToast(MatchView k) {
+        if(!k.liked) {
+            Toast.makeText(this, String.format("Liked " + k.name), Toast.LENGTH_LONG).show();
+            k.liked = true;
+        }else{
+            k.liked = false;
+        }
+        viewModel.updateMatch(k);
     }
 }
